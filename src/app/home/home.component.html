@@ -1,0 +1,18 @@
+<h1>Etsy Star Seller Calculator</h1>
+
+<p>
+  Message Response Time
+  <input type="text" placeholder="Enter the number of messages" [(ngModel)]="messageNumber"/>
+  <input type="text" placeholder="Enter percentage" [(ngModel)]="messagePercentage"/>
+  <button (click)="calculateMessage(messageNumber,messagePercentage)">
+    Calculate
+  </button>
+</p>
+<p>The number of messages you've responded to within 24 hours is:</p>
+<p> {{respondedMessages}}</p>
+<p>{{neededMessaged}}</p>
+
+
+<p>
+  On Time Shipping <input type="text" placeholder="Enter number of shipments" />
+</p>
