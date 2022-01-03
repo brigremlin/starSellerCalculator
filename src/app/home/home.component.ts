@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,18 +15,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  calculateMessage(messageNumber, messagePercentage) {
-    messagePercentage = this.messagePercentage/100;
-    this.respondedMessages = Math.round(
-      messageNumber * messagePercentage
-    );
+  calculateMessage(messageNumber: number, messagePercentage: number) {
+    messagePercentage = this.messagePercentage;
+    this.respondedMessages = Math.round(messageNumber * messagePercentage);
     console.log(this.respondedMessages);
     console.log(this.messagePercentage);
     while (this.messagePercentage < 0.95) {
       this.messageNumber++;
       this.respondedMessages++;
-      this.messagePercentage = this.respondedMessages/this.messageNumber;
+      this.messagePercentage = this.respondedMessages / this.messageNumber;
+      var num: number = Math.round(this.messagePercentage*100);
+      console.log(num);
+      if (num >= 95) {
+        console.log('I am' + num);
+        this.neededMessaged = this.messageNumber - this.respondedMessages;
+      }
     }
-    this.neededMessaged = this.messageNumber - this.respondedMessages;
   }
 }
