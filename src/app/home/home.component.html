@@ -1,77 +1,73 @@
-<h1>Etsy Star Seller Calculator</h1>
+<div class="container">
+  <h1>Star Seller Calculator</h1>
 
-<p>
-  Message Response Time
+  <h3>Message Response Rate</h3>
+  <p>Enter the number of messages you've received:</p>
   <input
     type="text"
-    placeholder="Enter the number of messages"
     [(ngModel)]="messageNumber"
+    placeholder="Enter whole number"
   />
+  <p>
+    Enter the percentage of messages that got an initial reply within 24 hours:
+  </p>
   <input
     type="text"
-    placeholder="Enter percentage"
+    placeholder="Enter as decimal"
     [(ngModel)]="messagePercentage"
   />
-  <button (click)="calculateMessage(messageNumber, messagePercentage)">
-    Calculate
-  </button>
-</p>
-<p>
-  The number of messages responded to within 24 hours that you need to qualify
-  is:
-</p>
-<p>{{ neededMessages }}</p>
 
-<p>
-  On Time Shipping
+  <h3>On-time Shipping/Tracking</h3>
+  <p>Enter the number of eligible orders shipped on time with tracking:</p>
   <input
     type="text"
-    placeholder="Enter shipments"
+    placeholder="Enter whole number"
     [(ngModel)]="shipmentNumber"
   />
+  <p>Enter the percentage of orders shipped on time with tracking:</p>
   <input
     type="text"
-    placeholder="Enter percentage"
+    placeholder="Enter as decimal"
     [(ngModel)]="shipmentPercentage"
   />
-  <button (click)="calculateShipments(shipmentNumber, shipmentPercentage)">
-    Calculate
-  </button>
-  <p>
-    The number of shipments responded to within 24 hours that you need to qualify
-    is:
-  </p>
-  <p>{{ neededShipments }}</p>
 
-  <p>
-    5-Star Ratings
+
+ <h3>5-star Rating</h3>
+ <p>How many ratings do you currently have:</p>
     <input
       type="text"
-      placeholder="Enter the number of ratings"
+      placeholder="Enter whole number"
       [(ngModel)]="ratingNumber"
     />
+    <p>Enter many items have 5-star ratings:</p>
     <input
       type="text"
       placeholder="Enter number of 5 Star"
       [(ngModel)]="fiveStar"
     />
-    <button (click)="calculateRating(ratingNumber, fiveStar)">
-      Calculate
-    </button>
-  </p>
-  <p>
-    The number of ratings responded to within 24 hours that you need to qualify
-    is:
-  </p>
-  <p>{{ ratings }}</p>
+
+
 
   <h1>Star Seller</h1>
-  <button class = "btn btn-primary" (click)="calculateStarSeller(messageNumber,
-  messagePercentage,
-  shipmentNumber,
-  shipmentPercentage,
-  ratingNumber,
-  fiveStar)"></button>
-<h2>{{ neededShipments}}</h2>
-<h2>{{neededMessages}}</h2>
-<h2>{{ratings}}</h2>
+  <button type="button"
+    (click)="
+      calculateStarSeller(
+        messageNumber,
+        messagePercentage,
+        shipmentNumber,
+        shipmentPercentage,
+        ratingNumber,
+        fiveStar
+      )
+    "
+  > Calculate</button>
+  <div>
+    <p> The number of future messages that need an initial response within 24 hours are:</p>
+    <p class = "results">{{ neededMessages }}</p>
+    <p>The number of future orders that need to be shipped on-time with tracking are:</p>
+    <p class = "results">{{ neededShipments }}</p>
+    <p *ngIf="ratings != 0">The number of 5-star ratings you need to receive on future orders are:</p>
+    <p class = "results" *ngIf="ratings !=0">{{ ratings }}</p>
+
+  </div>
+</div>
