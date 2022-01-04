@@ -2,17 +2,76 @@
 
 <p>
   Message Response Time
-  <input type="text" placeholder="Enter the number of messages" [(ngModel)]="messageNumber"/>
-  <input type="text" placeholder="Enter percentage" [(ngModel)]="messagePercentage"/>
-  <button (click)="calculateMessage(messageNumber,messagePercentage)">
+  <input
+    type="text"
+    placeholder="Enter the number of messages"
+    [(ngModel)]="messageNumber"
+  />
+  <input
+    type="text"
+    placeholder="Enter percentage"
+    [(ngModel)]="messagePercentage"
+  />
+  <button (click)="calculateMessage(messageNumber, messagePercentage)">
     Calculate
   </button>
 </p>
-<p> The number of messages responded to within 24 hours that you need to qualify is:</p>
-<p> {{respondedMessages}}</p>
-<p>{{neededMessaged}}</p>
-
+<p>
+  The number of messages responded to within 24 hours that you need to qualify
+  is:
+</p>
+<p>{{ neededMessages }}</p>
 
 <p>
-  On Time Shipping <input type="text" placeholder="Enter number of shipments" />
-</p>
+  On Time Shipping
+  <input
+    type="text"
+    placeholder="Enter shipments"
+    [(ngModel)]="shipmentNumber"
+  />
+  <input
+    type="text"
+    placeholder="Enter percentage"
+    [(ngModel)]="shipmentPercentage"
+  />
+  <button (click)="calculateShipments(shipmentNumber, shipmentPercentage)">
+    Calculate
+  </button>
+  <p>
+    The number of shipments responded to within 24 hours that you need to qualify
+    is:
+  </p>
+  <p>{{ neededShipments }}</p>
+
+  <p>
+    5-Star Ratings
+    <input
+      type="text"
+      placeholder="Enter the number of ratings"
+      [(ngModel)]="ratingNumber"
+    />
+    <input
+      type="text"
+      placeholder="Enter number of 5 Star"
+      [(ngModel)]="fiveStar"
+    />
+    <button (click)="calculateRating(ratingNumber, fiveStar)">
+      Calculate
+    </button>
+  </p>
+  <p>
+    The number of ratings responded to within 24 hours that you need to qualify
+    is:
+  </p>
+  <p>{{ ratings }}</p>
+
+  <h1>Star Seller</h1>
+  <button class = "btn btn-primary" (click)="calculateStarSeller(messageNumber,
+  messagePercentage,
+  shipmentNumber,
+  shipmentPercentage,
+  ratingNumber,
+  fiveStar)"></button>
+<h2>{{ neededShipments}}</h2>
+<h2>{{neededMessages}}</h2>
+<h2>{{ratings}}</h2>
