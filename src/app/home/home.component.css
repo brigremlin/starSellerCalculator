@@ -1,0 +1,30 @@
+.container {
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #ffffff;
+  background-color: rgb(236, 196, 255);
+  width: fit-content;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    font-weight: 400;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+button {
+    text-align: center;
+}
+
+.results {
+    font-weight: bold;
+}
